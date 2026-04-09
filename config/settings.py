@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
 
     'rest_framework',
+    'rest_framework.authtoken', 
     'cloudinary',
     'cloudinary_storage',
 
@@ -139,4 +140,15 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'config.pagination.CustomizePagination',
     'PAGE_SIZE': 8,
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication', 
+    ),
 }
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+CORS_ALLOW_ALL_ORIGINS = True
