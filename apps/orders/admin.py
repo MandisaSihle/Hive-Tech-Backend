@@ -1,10 +1,10 @@
 from django.contrib import admin
-from .models import Order
 
+from apps.orders.models import Order
 
 @admin.register(Order)
 class OrderModel(admin.ModelAdmin):
-    fields = ['user', 'total_price']
+    fields = ['user', 'customer_name', 'customer_phone', 'address', 'pin_code', 'building_type', 'city', 'state', 'total_price', 'total_qty']
     list_filter = []
-    list_display = ['id', 'user', 'total_price', 'created_at']
+    list_display = fields
     search_fields = ['user']
