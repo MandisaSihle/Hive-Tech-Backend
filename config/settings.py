@@ -185,10 +185,3 @@ REST_FRAMEWORK = {
 }
 
 
-
-# Cloudinary configuration
-# cloudinary.config(
-#     cloud_name='dp4lm83mo',
-#     api_key='442413967346491',
-#     api_secret='Zg5KexA4v3sVm97WcstJVYC81v4'
-# )

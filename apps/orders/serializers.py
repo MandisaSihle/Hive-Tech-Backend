@@ -9,6 +9,7 @@ from apps.order_items.models import OrderItem
 
 class OrderSerializer(serializers.ModelSerializer):
     order_items = OrderItemSerializer(many=True)
+
     class Meta:
         model = Order
         fields = [
@@ -24,7 +25,7 @@ class OrderSerializer(serializers.ModelSerializer):
             'total_qty',
             'order_items'
         ]
-    
+
     def create(self, validated_data):
         order_items = validated_data.pop('order_items')
         order = Order.objects.create(**validated_data)
@@ -34,8 +35,10 @@ class OrderSerializer(serializers.ModelSerializer):
 
         return order
 
+
 class OrderListSerializer(serializers.ModelSerializer):
     order_items = OrderItemSerializer(many=True)
+
     class Meta:
         model = Order
         fields = [
