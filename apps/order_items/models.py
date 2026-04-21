@@ -10,7 +10,7 @@ class OrderItem(models.Model):
         db_table = 'order_item'
 
     order = models.ForeignKey(
-        Order, related_name='related_order', on_delete=CASCADE
+        Order, related_name='order_items', on_delete=CASCADE
     )
     product = models.ForeignKey(
         Product, related_name='related_order_item_product', on_delete=models.CASCADE

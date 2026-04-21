@@ -51,6 +51,6 @@ class Order(models.Model):
         'Creation Date', blank=True, default=timezone.now
     )
 
-    @property
-    def orderitems(self):
-        return self.related_order.all()
+    # @property
+    # def orderitems(self):
+    #     return self.related_order.all()

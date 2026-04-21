@@ -4,6 +4,7 @@ from apps.products.serializers import ProductSerializer
 
 class CartListSerializer(serializers.ModelSerializer):
     product = ProductSerializer()
+    total_price = serializers.SerializerMethodField()
 
     class Meta:
         model = Cart
@@ -14,6 +15,12 @@ class CartListSerializer(serializers.ModelSerializer):
             'total_price'
         ]
         depth = 1
+
+    def get_total_price(self, obj):
+        try:
+            return obj.total_price
+        except:
+            return 0
 
 
 class CartSerializer(serializers.ModelSerializer):
@@ -26,6 +33,9 @@ class CartSerializer(serializers.ModelSerializer):
             'quantity',
             'total_price'
         ]
+        extra_kwargs = {
+            'user': {'required': False}
+        }
 
     def validate(self, data):
         errors = {}
